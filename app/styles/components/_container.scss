@@ -1,0 +1,27 @@
+.container {
+	background: #fafafa;
+	border: 1px solid #eee;
+	border-radius: 5px;
+	padding: 0;
+	margin-bottom: 25px;
+}
+.container__header {
+	border-bottom: 1px solid #eee;
+	padding: 25px;
+	label {
+		cursor: pointer;
+	}
+	&:last-child {
+		align-items: center;
+		display: flex;
+	}
+}
+.container__message {
+	color: #aaa;
+	text-align: center;
+	margin: 40px auto;
+}
+.container__footer {
+	border-top: 1px solid #eee;
+	padding: 15px 15px 0;
+}
