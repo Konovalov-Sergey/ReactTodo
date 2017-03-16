@@ -2,19 +2,20 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var {Provider} = require('react-redux');
 var {Route, Router, IndexRoute, hashHistory} = require('react-router');
+var TodoAPI = require('TodoApi');
 
 var TodoApp = require('TodoApp');
-
 var actions = require('actions');
 var store = require('configureStore').configure();
 
 store.subscribe(() => {
-	console.log('new state', store.getState());
+	var state = store.getState();
+	console.log('new state', state);
+	TodoAPI.setTodos(state.todos);
 });
 
-store.dispatch(actions.addTodo('Clean the yard!'));
-store.dispatch(actions.setSearchText('yard'));
-store.dispatch(actions.toggleShowCompleted());
+var initialTodos = TodoAPI.getTodos();
+store.dispatch(actions.addTodos(initialTodos));
 
 // Load foundation
 $(document).foundation();
